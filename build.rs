@@ -60,7 +60,8 @@ fn build_nasm_files(os: &str) {
             "src/asm/x86/tables.asm",
         ],
         &[&config_include_arg, "-Isrc/"],
-    );
+    )
+    .expect("nasm could not run");
     println!("cargo:rustc-link-lib=static=scenechangeasm");
     rerun_dir("src/asm/x86");
     rerun_dir("src/ext/x86");
